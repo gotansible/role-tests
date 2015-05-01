@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# test: Test gotansible.selfsign
+# Copyright (C) 2015 Franklin Wise <franklinwise@gmail.com>
+
+. "${ROLESPEC_LIB}/main"
+. "${ROLESPEC_TEST}/../defaults.conf"
+
+install_ansible ${test_ansible_version}
+ansible_plugins
+
+assert_playbook_runs
+assert_playbook_idempotent
+
